@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CounterCell" customModule="Life_Counter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXS-vq-ddk">
+                    <rect key="frame" x="69" y="31" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GD7-lW-ZIv">
+                    <rect key="frame" x="69" y="144" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9R-nV-82a">
+                    <rect key="frame" x="17" y="134" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3XC-kA-iIy"/>
+                        <constraint firstAttribute="width" constant="40" id="nV2-qv-ebF"/>
+                    </constraints>
+                    <state key="normal" image="btn-less"/>
+                    <connections>
+                        <action selector="lessBtnTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Q9y-Fi-BXX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKh-Cz-dl3">
+                    <rect key="frame" x="123" y="134" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="aGg-Y0-426"/>
+                        <constraint firstAttribute="width" constant="40" id="d50-vW-Tmf"/>
+                    </constraints>
+                    <state key="normal" image="btn-more"/>
+                    <connections>
+                        <action selector="moreBtnTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="6Ln-2E-k4z"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.81434180699481862" green="0.81434180699481862" blue="0.81434180699481862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="GD7-lW-ZIv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3Sm-5U-3Rj"/>
+                <constraint firstItem="x9R-nV-82a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="17" id="90k-Nd-8eo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uKh-Cz-dl3" secondAttribute="trailing" constant="17" id="GjE-AR-TP5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uKh-Cz-dl3" secondAttribute="bottom" constant="6" id="SV9-wu-NQq"/>
+                <constraint firstItem="CXS-vq-ddk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Sbh-Fi-Tm9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="x9R-nV-82a" secondAttribute="bottom" constant="6" id="UGg-6p-ZyV"/>
+                <constraint firstItem="CXS-vq-ddk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="31" id="dvA-ZP-ggb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GD7-lW-ZIv" secondAttribute="bottom" constant="15" id="w3O-vI-BsS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="amountLabel" destination="GD7-lW-ZIv" id="l5d-Qz-29l"/>
+                <outlet property="btnLess" destination="x9R-nV-82a" id="1hQ-LS-xs3"/>
+                <outlet property="btnMore" destination="uKh-Cz-dl3" id="Kie-5r-fKC"/>
+                <outlet property="nameLabel" destination="CXS-vq-ddk" id="R0e-2S-GNo"/>
+            </connections>
+            <point key="canvasLocation" x="20.800000000000001" y="-74.662668665667169"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn-less" width="330" height="330"/>
+        <image name="btn-more" width="330" height="330"/>
+    </resources>
+</document>

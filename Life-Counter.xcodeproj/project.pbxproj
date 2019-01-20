@@ -14,6 +14,10 @@
 		3F34430F21F49F1200938BDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F34430D21F49F1200938BDC /* LaunchScreen.storyboard */; };
 		3F34431A21F49F1200938BDC /* Life_CounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F34431921F49F1200938BDC /* Life_CounterTests.swift */; };
 		3F34432521F49F1200938BDC /* Life_CounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F34432421F49F1200938BDC /* Life_CounterUITests.swift */; };
+		3F34433421F4BD7A00938BDC /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F34433321F4BD7A00938BDC /* Counter.swift */; };
+		3F34433721F4C11800938BDC /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F34433621F4C11800938BDC /* CounterCell.swift */; };
+		3F34433E21F4C2BD00938BDC /* CounterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F34433D21F4C2BD00938BDC /* CounterCell.xib */; };
+		3F34434121F50B7D00938BDC /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F34434021F50B7D00938BDC /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		3F34432021F49F1200938BDC /* Life-CounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Life-CounterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F34432421F49F1200938BDC /* Life_CounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Life_CounterUITests.swift; sourceTree = "<group>"; };
 		3F34432621F49F1200938BDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F34433321F4BD7A00938BDC /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		3F34433621F4C11800938BDC /* CounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
+		3F34433D21F4C2BD00938BDC /* CounterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CounterCell.xib; sourceTree = "<group>"; };
+		3F34434021F50B7D00938BDC /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +105,12 @@
 		3F34430321F49F1200938BDC /* Life-Counter */ = {
 			isa = PBXGroup;
 			children = (
+				3F34433F21F4C2F400938BDC /* XIB */,
+				3F34433221F4BD6600938BDC /* Model */,
+				3F34433521F4C0D400938BDC /* View */,
 				3F34430421F49F1200938BDC /* AppDelegate.swift */,
 				3F34430621F49F1200938BDC /* ViewController.swift */,
+				3F34434021F50B7D00938BDC /* Utils.swift */,
 				3F34430821F49F1200938BDC /* Main.storyboard */,
 				3F34430B21F49F1200938BDC /* Assets.xcassets */,
 				3F34430D21F49F1200938BDC /* LaunchScreen.storyboard */,
@@ -123,6 +135,30 @@
 				3F34432621F49F1200938BDC /* Info.plist */,
 			);
 			path = "Life-CounterUITests";
+			sourceTree = "<group>";
+		};
+		3F34433221F4BD6600938BDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F34433321F4BD7A00938BDC /* Counter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F34433521F4C0D400938BDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F34433621F4C11800938BDC /* CounterCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F34433F21F4C2F400938BDC /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				3F34433D21F4C2BD00938BDC /* CounterCell.xib */,
+			);
+			path = XIB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F34433E21F4C2BD00938BDC /* CounterCell.xib in Resources */,
 				3F34430F21F49F1200938BDC /* LaunchScreen.storyboard in Resources */,
 				3F34430C21F49F1200938BDC /* Assets.xcassets in Resources */,
 				3F34430A21F49F1200938BDC /* Main.storyboard in Resources */,
@@ -256,8 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F34434121F50B7D00938BDC /* Utils.swift in Sources */,
+				3F34433721F4C11800938BDC /* CounterCell.swift in Sources */,
 				3F34430721F49F1200938BDC /* ViewController.swift in Sources */,
 				3F34430521F49F1200938BDC /* AppDelegate.swift in Sources */,
+				3F34433421F4BD7A00938BDC /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
