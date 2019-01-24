@@ -8,31 +8,28 @@
 
 import Foundation
 
-struct CounterModel {
+struct CounterModel: Codable {
   var name: String
   var amount: Int
 }
 
+func saveUserDefaults(counters: [CounterModel]) {
+  let defaults = UserDefaults.standard
+  
+  let jsonEncoder = JSONEncoder()
+  let jsonData = try? jsonEncoder.encode(counters)
+  
+  defaults.set(jsonData, forKey: "savedCounters")
+}
 
-class Counting: NSObject, NSCoding {
-  var name: String
-  var amount: Int
+func loadUserDefaults() -> [CounterModel] {
+  let defaults = UserDefaults.standard
+  var savedCounters: [CounterModel] = []
   
+  guard let jsonData = defaults.object(forKey: "savedCounters") as? Data else { return savedCounters}
   
-  init(name: String, amount: Int) {
-    self.name = name
-    self.amount = amount
-    
-  }
+  let jsonDecoder = JSONDecoder()
+  savedCounters = try! jsonDecoder.decode([CounterModel].self, from: jsonData)
   
-  required convenience init(coder aDecoder: NSCoder) {
-    let name = aDecoder.decodeObject(forKey: "name") as! String
-    let amount = aDecoder.decodeObject(forKey: "amount")
-    self.init(name: name, amount: amount as! Int)
-  }
-  
-  func encode(with aCoder: NSCoder) {
-    aCoder.encode(name, forKey: "name")
-    aCoder.encode(amount, forKey: "amount")
-  }
+  return savedCounters
 }

@@ -37,7 +37,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wK-4f-HIR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wK-4f-HIR">
                                 <rect key="frame" x="155.5" y="560" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="QeM-nE-FDK"/>

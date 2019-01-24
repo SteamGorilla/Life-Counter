@@ -16,6 +16,10 @@ class CounterCell: UICollectionViewCell {
   @IBOutlet weak var btnLess: UIButton!
   @IBOutlet weak var btnMore: UIButton!
   
+  var newAmount: Int?
+  
+  var amount = Dynamic<Int>(0)
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     
@@ -31,19 +35,27 @@ class CounterCell: UICollectionViewCell {
   }
   
   @IBAction func lessBtnTapped(_ sender: Any) {
-    let newAmount = Int(amountLabel.text!)
+    newAmount = Int(amountLabel.text!)
     
     if (newAmount == 0) {
       amountLabel.text = "\(newAmount!)"
     } else {
       amountLabel.text = "\(newAmount! - 1)"
     }
+    
+    amount.value = newAmount!
   }
   
   
   @IBAction func moreBtnTapped(_ sender: Any) {
-    let newAmount = Int(amountLabel.text!)
+    newAmount = Int(amountLabel.text!)
     
     amountLabel.text = "\(newAmount! + 1)"
+    
+    amount.value = newAmount!
+  }
+  
+  func sendNewAmount() -> Int {
+    return newAmount!
   }
 }

@@ -12,6 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+  
+  func isAppAlreadyLaunchedOnce()->Bool{
+    let defaults = UserDefaults.standard
+    if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+      print("App already launched")
+      return true
+    }else{
+      defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+      print("App launched first time")
+      return false
+    }
+  }
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

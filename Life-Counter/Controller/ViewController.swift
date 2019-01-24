@@ -10,8 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
-  var data: [CounterModel] = [CounterModel(name: "Boire de l'eau", amount: 7),
-                           CounterModel(name: "Bière", amount: 43)]
+  let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  
+  var data: [CounterModel] = []
   
   var newLabelValue: String?
   var newAmountValue: Int?
@@ -29,6 +30,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     collectionView.register(UINib.init(nibName: "CounterCell", bundle: nil), forCellWithReuseIdentifier: "CounterCell")
     collectionView.backgroundColor = UIColor.clear
     collectionView.isUserInteractionEnabled = true
+    
+    prepareData()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    saveUserDefaults(counters: data)
   }
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -41,10 +48,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CounterCell", for: indexPath) as! CounterCell
+    
+    cell.amount.bindAndFire(self) { [weak self] amount in
+      self!.data[indexPath.row].amount = amount
+    }
+    
     cell.configure(with: data[indexPath.row])
     
-  
     return cell
+  }
+  
+  func prepareData() {
+    let isAlreadyLaunch: Bool = appDelegate.isAppAlreadyLaunchedOnce()
+    
+    if isAlreadyLaunch == true {
+      data = loadUserDefaults()
+    } else {
+      data = []
+    }
   }
   
   @IBAction func btnAddTapped(_ sender: Any) {
@@ -57,6 +78,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     alert.addTextField { (textField) in
       textField.placeholder = "Combien ?"
+      textField.keyboardType = UIKeyboardType.numberPad
     }
     
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
@@ -69,7 +91,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
       let newCounter: CounterModel = CounterModel(name: self.newLabelValue!, amount: self.newAmountValue!)
       
       self.data.append(newCounter)
+      saveUserDefaults(counters: self.data)
       
+      self.data = loadUserDefaults()
+
       self.collectionView.reloadData()
     }))
     
