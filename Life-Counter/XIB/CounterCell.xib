@@ -50,16 +50,36 @@
                         <action selector="moreBtnTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="6Ln-2E-k4z"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpZ-cn-eNo">
+                    <rect key="frame" x="155" y="5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Pkd-t4-cFZ"/>
+                        <constraint firstAttribute="width" constant="20" id="rGz-1O-wWe"/>
+                    </constraints>
+                    <state key="normal" image="btn-remove"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKZ-Sz-eaK">
+                    <rect key="frame" x="5" y="5" width="21" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="5fE-ij-ekv"/>
+                        <constraint firstAttribute="height" constant="20" id="FXZ-iI-cTs"/>
+                    </constraints>
+                    <state key="normal" image="btn-intel"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.81434180699481862" green="0.81434180699481862" blue="0.81434180699481862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="GD7-lW-ZIv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3Sm-5U-3Rj"/>
+                <constraint firstItem="JpZ-cn-eNo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="6eZ-up-RKF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JpZ-cn-eNo" secondAttribute="trailing" constant="5" id="7XS-da-Gy6"/>
                 <constraint firstItem="x9R-nV-82a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="17" id="90k-Nd-8eo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uKh-Cz-dl3" secondAttribute="trailing" constant="17" id="GjE-AR-TP5"/>
+                <constraint firstItem="IKZ-Sz-eaK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="R8K-5U-fXF"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uKh-Cz-dl3" secondAttribute="bottom" constant="6" id="SV9-wu-NQq"/>
                 <constraint firstItem="CXS-vq-ddk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Sbh-Fi-Tm9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="x9R-nV-82a" secondAttribute="bottom" constant="6" id="UGg-6p-ZyV"/>
                 <constraint firstItem="CXS-vq-ddk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="31" id="dvA-ZP-ggb"/>
+                <constraint firstItem="IKZ-Sz-eaK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="sBT-KM-C3Y"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GD7-lW-ZIv" secondAttribute="bottom" constant="15" id="w3O-vI-BsS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -68,13 +88,17 @@
                 <outlet property="amountLabel" destination="GD7-lW-ZIv" id="l5d-Qz-29l"/>
                 <outlet property="btnLess" destination="x9R-nV-82a" id="1hQ-LS-xs3"/>
                 <outlet property="btnMore" destination="uKh-Cz-dl3" id="Kie-5r-fKC"/>
+                <outlet property="deleteButton" destination="JpZ-cn-eNo" id="dGE-rb-frS"/>
+                <outlet property="intelButton" destination="IKZ-Sz-eaK" id="Maa-ol-8MF"/>
                 <outlet property="nameLabel" destination="CXS-vq-ddk" id="R0e-2S-GNo"/>
             </connections>
             <point key="canvasLocation" x="20.800000000000001" y="-74.662668665667169"/>
         </view>
     </objects>
     <resources>
+        <image name="btn-intel" width="234" height="222"/>
         <image name="btn-less" width="330" height="330"/>
         <image name="btn-more" width="330" height="330"/>
+        <image name="btn-remove" width="256" height="256"/>
     </resources>
 </document>

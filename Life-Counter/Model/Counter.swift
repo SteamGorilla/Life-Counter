@@ -11,6 +11,7 @@ import Foundation
 struct CounterModel: Codable {
   var name: String
   var amount: Int
+  var dateOfCreation: String
 }
 
 func saveUserDefaults(counters: [CounterModel]) {

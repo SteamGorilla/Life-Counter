@@ -48,12 +48,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CounterCell", for: indexPath) as! CounterCell
-    
-    cell.amount.bindAndFire(self) { [weak self] amount in
-      self!.data[indexPath.row].amount = amount
+
+    cell.configure(with: data[indexPath.row]) { incremented  in
+      self.data[indexPath.row].amount += incremented ? 1 : -1
+      saveUserDefaults(counters: self.data)
     }
     
-    cell.configure(with: data[indexPath.row])
+    cell.deleteButton.layer.setValue(indexPath.row, forKey: "index")
+    cell.deleteButton.addTarget(self, action: #selector(deleteUser), for: .touchUpInside)
+    
+    cell.intelButton.layer.setValue(indexPath.row, forKey: "index")
+    cell.intelButton.addTarget(self, action: #selector(showDate), for: .touchUpInside)
     
     return cell
   }
@@ -85,10 +90,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
       let labelTextfield = alert!.textFields![0]
       let amountTextfield = alert!.textFields![1]
       
+      let dateFormat = DateFormatter()
+      dateFormat.dateFormat = "dd-MM-yyyy"
+      
+      let now = dateFormat.string(from: Date())
+      
       self.newLabelValue = labelTextfield.text
       self.newAmountValue = Int(amountTextfield.text!)
       
-      let newCounter: CounterModel = CounterModel(name: self.newLabelValue!, amount: self.newAmountValue!)
+      let newCounter: CounterModel = CounterModel(name: self.newLabelValue!, amount: self.newAmountValue!, dateOfCreation: now)
       
       self.data.append(newCounter)
       saveUserDefaults(counters: self.data)
@@ -97,6 +107,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
       self.collectionView.reloadData()
     }))
+    
+    alert.addAction(action)
+    self.present(alert, animated: true)
+  }
+  
+  @objc func deleteUser(sender: UIButton) {
+    
+    let i: Int = (sender.layer.value(forKey: "index")) as! Int
+    data.remove(at: i)
+    
+    saveUserDefaults(counters: data)
+    collectionView.reloadData()
+  }
+  
+  @objc func showDate(sender: UIButton) {
+    
+    let i: Int = (sender.layer.value(forKey: "index")) as! Int
+    
+    let alert = UIAlertController(title: "Date de création", message: "\(data[i].dateOfCreation)", preferredStyle: .alert)
+    let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
     
     alert.addAction(action)
     self.present(alert, animated: true)

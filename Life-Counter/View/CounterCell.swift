@@ -15,10 +15,11 @@ class CounterCell: UICollectionViewCell {
   @IBOutlet weak var amountLabel: UILabel!
   @IBOutlet weak var btnLess: UIButton!
   @IBOutlet weak var btnMore: UIButton!
+  @IBOutlet weak var deleteButton: UIButton!
+  @IBOutlet weak var intelButton: UIButton!
   
   var newAmount: Int?
-  
-  var amount = Dynamic<Int>(0)
+  private var valueDidChange: ((Bool) -> Void)?
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -29,9 +30,10 @@ class CounterCell: UICollectionViewCell {
 
   }
   
-  public func configure(with model: CounterModel) {
+  public func configure(with model: CounterModel, valueDidChange: @escaping (Bool) -> Void) {    
     nameLabel.text = model.name
     amountLabel.text = String(model.amount)
+    self.valueDidChange = valueDidChange
   }
   
   @IBAction func lessBtnTapped(_ sender: Any) {
@@ -42,8 +44,7 @@ class CounterCell: UICollectionViewCell {
     } else {
       amountLabel.text = "\(newAmount! - 1)"
     }
-    
-    amount.value = newAmount!
+    valueDidChange?(false)
   }
   
   
@@ -51,11 +52,6 @@ class CounterCell: UICollectionViewCell {
     newAmount = Int(amountLabel.text!)
     
     amountLabel.text = "\(newAmount! + 1)"
-    
-    amount.value = newAmount!
-  }
-  
-  func sendNewAmount() -> Int {
-    return newAmount!
+    valueDidChange?(true)
   }
 }
