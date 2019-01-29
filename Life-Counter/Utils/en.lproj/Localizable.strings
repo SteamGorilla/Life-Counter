@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Life-Counter
+
+  Created by Jeremy on 29/01/2019.
+  Copyright © 2019 Jeremy. All rights reserved.
+*/
+
+"new_counter" = "New Counter";
+"back" = "Back";
+"counter_name" = "Name of the Counter";
+"howmany" = "Number of times";
+"counter_creation" = "Added on :";
+"counter_empty" = "Name and number of times are required !";

@@ -27,7 +27,6 @@ class CounterCell: UICollectionViewCell {
     self.layer.cornerRadius = 10.0
     
     self.contentView.isUserInteractionEnabled = false
-
   }
   
   public func configure(with model: CounterModel, valueDidChange: @escaping (Bool) -> Void) {    

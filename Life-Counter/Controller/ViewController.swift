@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
   
   let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  
+    
   var data: [CounterModel] = []
   
   var newLabelValue: String?
   var newAmountValue: Int?
   
   @IBOutlet weak var collectionView: UICollectionView!
+  @IBOutlet weak var bannerView: GADBannerView!
   
   let defaults = UserDefaults.standard
   
@@ -30,6 +32,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     collectionView.register(UINib.init(nibName: "CounterCell", bundle: nil), forCellWithReuseIdentifier: "CounterCell")
     collectionView.backgroundColor = UIColor.clear
     collectionView.isUserInteractionEnabled = true
+    
+    configureAdBanner()
     
     prepareData()
   }
@@ -74,15 +78,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
   }
   
   @IBAction func btnAddTapped(_ sender: Any) {
-    let alert = UIAlertController(title: "Nouveau compteur", message: "", preferredStyle: .alert)
-    let action = UIAlertAction(title: "Retour", style: .destructive, handler: nil)
+    let alert = UIAlertController(title: NSLocalizedString("new_counter", comment: ""), message: "", preferredStyle: .alert)
+    let action = UIAlertAction(title: NSLocalizedString("back", comment: ""), style: .destructive, handler: nil)
     
     alert.addTextField { (textField) in
-      textField.placeholder = "Chose que tu fais ?"
+      textField.placeholder =  NSLocalizedString("counter_name", comment: "")
     }
     
     alert.addTextField { (textField) in
-      textField.placeholder = "Combien ?"
+      textField.placeholder =  NSLocalizedString("howmany", comment: "")
       textField.keyboardType = UIKeyboardType.numberPad
     }
     
@@ -95,17 +99,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
       
       let now = dateFormat.string(from: Date())
       
+      var newCounter: CounterModel = CounterModel(name: "", amount: 0, dateOfCreation: now)
+      
       self.newLabelValue = labelTextfield.text
       self.newAmountValue = Int(amountTextfield.text!)
       
-      let newCounter: CounterModel = CounterModel(name: self.newLabelValue!, amount: self.newAmountValue!, dateOfCreation: now)
-      
-      self.data.append(newCounter)
-      saveUserDefaults(counters: self.data)
-      
-      self.data = loadUserDefaults()
-
-      self.collectionView.reloadData()
+      if (self.newLabelValue == nil || self.newAmountValue == nil) {
+        self.setAlertAction(message: NSLocalizedString("counter_empty", comment: ""))
+        self.btnAddTapped(self)
+      } else {
+        newCounter = CounterModel(name: self.newLabelValue!, amount: self.newAmountValue!, dateOfCreation: now)
+        
+        self.data.append(newCounter)
+        saveUserDefaults(counters: self.data)
+        
+        self.data = loadUserDefaults()
+        
+        self.collectionView.reloadData()
+      }
     }))
     
     alert.addAction(action)
@@ -125,11 +136,32 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     let i: Int = (sender.layer.value(forKey: "index")) as! Int
     
-    let alert = UIAlertController(title: "Date de création", message: "\(data[i].dateOfCreation)", preferredStyle: .alert)
+    let alert = UIAlertController(title:  NSLocalizedString("counter_creation", comment: ""), message: "\(data[i].dateOfCreation)", preferredStyle: .alert)
     let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
     
     alert.addAction(action)
     self.present(alert, animated: true)
+  }
+  
+  func configureAdBanner() {
+    
+    bannerView.adUnitID = "ca-app-pub-5410400935274111/7400529402"
+    bannerView.rootViewController = self
+    
+    bannerView.load(GADRequest())
+  }
+  
+  func setAlertAction(message: String) {
+    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+    
+    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+      UIAlertAction in
+      NSLog("OK Pressed")
+    }
+    
+    alertController.addAction(okAction)
+    
+    self.present(alertController, animated: true, completion: nil)
   }
 }
 

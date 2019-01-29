@@ -16,12 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXS-vq-ddk">
-                    <rect key="frame" x="69" y="31" width="42" height="20"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GD7-lW-ZIv">
                     <rect key="frame" x="69" y="145" width="42" height="20"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -29,10 +23,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9R-nV-82a">
-                    <rect key="frame" x="17" y="134" width="40" height="40"/>
+                    <rect key="frame" x="17" y="139" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="3XC-kA-iIy"/>
-                        <constraint firstAttribute="width" constant="40" id="nV2-qv-ebF"/>
+                        <constraint firstAttribute="height" constant="35" id="3XC-kA-iIy"/>
+                        <constraint firstAttribute="width" constant="35" id="nV2-qv-ebF"/>
                     </constraints>
                     <state key="normal" image="btn-less"/>
                     <connections>
@@ -40,10 +34,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKh-Cz-dl3">
-                    <rect key="frame" x="123" y="134" width="40" height="40"/>
+                    <rect key="frame" x="128" y="139" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="aGg-Y0-426"/>
-                        <constraint firstAttribute="width" constant="40" id="d50-vW-Tmf"/>
+                        <constraint firstAttribute="height" constant="35" id="aGg-Y0-426"/>
+                        <constraint firstAttribute="width" constant="35" id="d50-vW-Tmf"/>
                     </constraints>
                     <state key="normal" image="btn-more"/>
                     <connections>
@@ -66,6 +60,15 @@
                     </constraints>
                     <state key="normal" image="btn-intel"/>
                 </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXS-vq-ddk">
+                    <rect key="frame" x="40" y="31" width="100" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="q26-be-zgA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.81434180699481862" green="0.81434180699481862" blue="0.81434180699481862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -76,10 +79,10 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uKh-Cz-dl3" secondAttribute="trailing" constant="17" id="GjE-AR-TP5"/>
                 <constraint firstItem="IKZ-Sz-eaK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="5" id="R8K-5U-fXF"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uKh-Cz-dl3" secondAttribute="bottom" constant="6" id="SV9-wu-NQq"/>
-                <constraint firstItem="CXS-vq-ddk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Sbh-Fi-Tm9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="x9R-nV-82a" secondAttribute="bottom" constant="6" id="UGg-6p-ZyV"/>
                 <constraint firstItem="CXS-vq-ddk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="31" id="dvA-ZP-ggb"/>
                 <constraint firstItem="IKZ-Sz-eaK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="sBT-KM-C3Y"/>
+                <constraint firstItem="CXS-vq-ddk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="v8Z-aY-W3J"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GD7-lW-ZIv" secondAttribute="bottom" constant="15" id="w3O-vI-BsS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

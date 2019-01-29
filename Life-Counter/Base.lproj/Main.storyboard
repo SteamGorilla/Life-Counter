@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Life_Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yd8-Tf-JFV">
-                                <rect key="frame" x="0.0" y="45" width="375" height="527"/>
+                                <rect key="frame" x="0.0" y="45" width="414" height="596"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="jGD-4t-qk9">
                                     <size key="itemSize" width="160" height="160"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -38,7 +38,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wK-4f-HIR">
-                                <rect key="frame" x="155.5" y="560" width="64" height="64"/>
+                                <rect key="frame" x="175" y="597" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="QeM-nE-FDK"/>
                                     <constraint firstAttribute="width" constant="64" id="icx-R2-47B"/>
@@ -48,12 +48,22 @@
                                     <action selector="btnAddTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WWF-WV-Wk6"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHD-uG-Xli" customClass="GADBannerView">
+                                <rect key="frame" x="47" y="686" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QKk-x3-j68"/>
+                                    <constraint firstAttribute="width" constant="320" id="pUc-4u-RWP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8wK-4f-HIR" secondAttribute="bottom" constant="43" id="6Dq-lM-Wo6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8wK-4f-HIR" secondAttribute="bottom" constant="75" id="6Dq-lM-Wo6"/>
+                            <constraint firstItem="EHD-uG-Xli" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="96Q-C2-Vba"/>
                             <constraint firstItem="Yd8-Tf-JFV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HLH-Ig-umT"/>
                             <constraint firstItem="8wK-4f-HIR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jka-S7-kCK"/>
+                            <constraint firstItem="EHD-uG-Xli" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RrL-Ws-gfo"/>
                             <constraint firstItem="Yd8-Tf-JFV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WJ8-wh-C84"/>
                             <constraint firstItem="Yd8-Tf-JFV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-95" id="r3e-NZ-uLm"/>
                             <constraint firstItem="Yd8-Tf-JFV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="umv-Nd-K8f"/>
@@ -62,6 +72,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="EHD-uG-Xli" id="bkx-Uh-jko"/>
                         <outlet property="collectionView" destination="Yd8-Tf-JFV" id="RbO-Wi-JRO"/>
                     </connections>
                 </viewController>
