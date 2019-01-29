@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     GADMobileAds.configure(withApplicationID: "ca-app-pub-5410400935274111~6657249798")
     
+    
     return true
   }
 
