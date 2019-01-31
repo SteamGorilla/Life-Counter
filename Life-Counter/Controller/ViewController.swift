@@ -145,7 +145,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
   
   func configureAdBanner() {
     
-    bannerView.adUnitID = "ca-app-pub-5410400935274111/7400529402"
+    bannerView.adUnitID = "ca-app-pub-4679378304488388/2824867873"
     bannerView.rootViewController = self
     
     bannerView.load(GADRequest())
